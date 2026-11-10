@@ -4,11 +4,9 @@ import {
   Mail, 
   MapPin, 
   UserCheck, 
-  QrCode, 
   Share2, 
   Check, 
-  MessageCircle,
-  ExternalLink
+  MessageCircle 
 } from 'lucide-react';
 import { ContactInfo } from '../types';
 import { createVCardString, downloadVCard } from '../utils/vcard';
@@ -16,11 +14,11 @@ import { buildWhatsAppLink } from '../utils/lead';
 
 interface HeroCardProps {
   contact: ContactInfo;
-  onOpenQR: () => void;
-  onOpenWP: () => void;
+  onOpenQR?: () => void;
+  onOpenWP?: () => void;
 }
 
-export function HeroCard({ contact, onOpenQR, onOpenWP }: HeroCardProps) {
+export function HeroCard({ contact }: HeroCardProps) {
   const [copiedLink, setCopiedLink] = useState(false);
 
   const handleDownloadVCard = () => {
@@ -106,16 +104,8 @@ export function HeroCard({ contact, onOpenQR, onOpenWP }: HeroCardProps) {
                 </div>
               </div>
 
-              {/* Quick Actions (Share, QR) */}
+              {/* Quick Actions (Share) */}
               <div className="flex items-center justify-center sm:justify-end gap-2 shrink-0">
-                <button
-                  onClick={onOpenQR}
-                  title="Mostrar Código QR"
-                  className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:border-amber-400 hover:bg-amber-500/10 hover:text-amber-600 dark:hover:text-amber-400 transition-colors flex items-center gap-1.5 text-xs font-semibold cursor-pointer"
-                >
-                  <QrCode className="w-4 h-4" />
-                  <span className="hidden sm:inline">Código QR</span>
-                </button>
                 <button
                   onClick={handleShare}
                   title="Compartir tarjeta"

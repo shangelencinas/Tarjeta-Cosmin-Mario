@@ -5,12 +5,12 @@ import { createVCardString, downloadVCard } from '../utils/vcard';
 interface HeaderProps {
   contact: ContactInfo;
   onOpenQR?: () => void;
-  onOpenWP: () => void;
+  onOpenWP?: () => void;
   darkMode: boolean;
   onToggleTheme: () => void;
 }
 
-export function Header({ contact, onOpenQR, onOpenWP, darkMode, onToggleTheme }: HeaderProps) {
+export function Header({ contact, darkMode, onToggleTheme }: HeaderProps) {
   const handleDownloadVCard = () => {
     const vcard = createVCardString(contact);
     downloadVCard(vcard, `${contact.firstName}_${contact.lastName}_COSMIN.vcf`);
@@ -60,12 +60,6 @@ export function Header({ contact, onOpenQR, onOpenWP, darkMode, onToggleTheme }:
           >
             Contacto Directo
           </a>
-          <button
-            onClick={onOpenWP}
-            className="hover:text-amber-500 dark:hover:text-amber-400 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
-          >
-            Elementor & WP
-          </button>
         </nav>
 
         {/* Zone 3: Primary Actions (COSMIN Brand Palette: Gold/Black) */}
