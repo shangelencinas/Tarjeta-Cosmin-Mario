@@ -3,7 +3,7 @@ import { ContactInfo } from '../types';
 interface FooterProps {
   contact: ContactInfo;
   onOpenWP?: () => void;
-  onOpenQR: () => void;
+  onOpenQR?: () => void;
 }
 
 export function Footer({ contact, onOpenWP, onOpenQR }: FooterProps) {
@@ -67,14 +67,7 @@ export function Footer({ contact, onOpenWP, onOpenQR }: FooterProps) {
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
-            <button
-              onClick={onOpenQR}
-              className="py-1.5 px-3 rounded-lg border border-slate-300 dark:border-slate-700 hover:border-amber-400 text-slate-700 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors cursor-pointer"
-            >
-              Código QR
-            </button>
-          </div>
+          {/* Footer actions */}
         </div>
 
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">

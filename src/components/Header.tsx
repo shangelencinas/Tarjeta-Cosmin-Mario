@@ -1,10 +1,10 @@
-import { UserCheck, QrCode, Moon, Sun, ExternalLink } from 'lucide-react';
+import { UserCheck, Moon, Sun, ExternalLink } from 'lucide-react';
 import { ContactInfo } from '../types';
 import { createVCardString, downloadVCard } from '../utils/vcard';
 
 interface HeaderProps {
   contact: ContactInfo;
-  onOpenQR: () => void;
+  onOpenQR?: () => void;
   onOpenWP: () => void;
   darkMode: boolean;
   onToggleTheme: () => void;
@@ -76,14 +76,6 @@ export function Header({ contact, onOpenQR, onOpenWP, darkMode, onToggleTheme }:
             className="w-9 h-9 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/80 flex items-center justify-center transition-colors cursor-pointer"
           >
             {darkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4" />}
-          </button>
-
-          <button
-            onClick={onOpenQR}
-            aria-label="Ver código QR"
-            className="w-9 h-9 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-amber-400 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-500/10 flex items-center justify-center transition-colors cursor-pointer"
-          >
-            <QrCode className="w-4 h-4" />
           </button>
 
           <button
